@@ -2,6 +2,8 @@ import 'package:covid/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../routes/resource_icons.dart';
+
 class ManHeader extends StatelessWidget {
   const ManHeader({
     super.key,
@@ -26,10 +28,15 @@ class ManHeader extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 2.h, right: 4.w, left: 2.w),
+            margin: EdgeInsets.only(top: 2.h, right: 5.w, left: 12.w),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Image.asset(
+                  logo,
+                  width: 20.w,
+                  height: 20.h,
+                ),
                 back != null
                     ? InkWell(
                         onTap: back,

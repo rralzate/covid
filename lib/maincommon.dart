@@ -1,8 +1,10 @@
 import 'package:covid/core/routes/page_generator.dart';
 import 'package:covid/core/theme/app_theme.dart';
+import 'package:covid/core/theme/theme_provider.dart';
 import 'package:covid/features/auth/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyApp extends StatelessWidget {
@@ -14,7 +16,11 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Covid-19",
-        theme: appTheme,
+        supportedLocales: const [
+          Locale('en', 'US'),
+          Locale('es', 'ES'),
+        ],
+        darkTheme: appThemeLight,
         initialRoute: SplashScreen.routeName,
         onGenerateRoute: PageClassGenerator.getNamedScreen,
       );

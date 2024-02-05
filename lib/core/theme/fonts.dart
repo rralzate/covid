@@ -12,7 +12,7 @@ TextStyle get textLogoStyle => GoogleFonts.lato(
     );
 
 /// This textStyle its for all Logo Text in the aplication
-TextStyle get textBlueLogoStyle => GoogleFonts.lato(
+TextStyle get textOrangeLogoStyle => GoogleFonts.lato(
       color: secondColor,
       fontSize: Adaptive.sp(32),
       fontWeight: FontWeight.bold,
@@ -104,14 +104,14 @@ TextStyle get textBlackStyleLitte => GoogleFonts.lato(
     );
 
 /// This textStyle its for all black Text in the aplication
-TextStyle get textBlueStyle => GoogleFonts.lato(
+TextStyle get textOrangeStyle => GoogleFonts.lato(
       color: secondColor,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(15),
     );
 
 /// This textStyle its for all black Text in the aplication
-TextStyle get textBlueStyleSubtitle => GoogleFonts.lato(
+TextStyle get textOrangeStyleSubtitle => GoogleFonts.lato(
       color: secondColor,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(18),
@@ -160,7 +160,7 @@ TextStyle get textBlackStyleSubTitleLight => GoogleFonts.lato(
 TextStyle get textBlackStyleSubTitleBold => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.bold,
-      fontSize: Adaptive.sp(16),
+      fontSize: Adaptive.sp(14),
     );
 TextStyle get textBlackNameUserCardBold => GoogleFonts.lato(
       color: mainBlack,
@@ -185,10 +185,10 @@ TextStyle get textBlackStyleThinDescription => GoogleFonts.lato(
       fontWeight: FontWeight.normal,
       fontSize: Adaptive.sp(15),
     );
-TextStyle get textBlackStyleThinPositionUsercard => GoogleFonts.lato(
-      color: mainBlack,
+TextStyle get textBlackStyleThinPositionCovidcard => GoogleFonts.lato(
+      color: primaryColor,
       fontWeight: FontWeight.normal,
-      fontSize: Adaptive.sp(16),
+      fontSize: Adaptive.sp(15),
     );
 
 TextStyle get textGrayStyleThinDescription => GoogleFonts.lato(
