@@ -2,6 +2,7 @@ import 'package:covid/core/routes/resource_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/components/splash_loading.dart';
+import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -22,6 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> processScreen() async {
     await Future.delayed(const Duration(seconds: 3));
+
+    goToLogin();
+  }
+
+  void goToLogin() {
+    Navigator.pushReplacementNamed(context, LoginScreen.routeName);
   }
 
   @override
