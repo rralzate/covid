@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Covid-19",
+        supportedLocales: const [
+          Locale('en', 'US'),
+          Locale('es', 'ES'),
+        ],
         theme: appTheme,
         initialRoute: SplashScreen.routeName,
         onGenerateRoute: PageClassGenerator.getNamedScreen,

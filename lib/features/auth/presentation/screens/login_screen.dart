@@ -15,6 +15,7 @@ import '../../../../core/components/primary_button.dart';
 import '../../../../core/components/women_header.dart';
 import '../../../../core/theme/fonts.dart';
 import '../../../../injection_container.dart';
+import '../../../home/presentation/screens/home_screen.dart';
 import '../bloc/auth_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -74,8 +75,9 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _success() async {
-    //Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
   }
+
   Widget _contentBody() {
     return Stack(
       children: [

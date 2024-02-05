@@ -1,4 +1,5 @@
 import 'package:covid/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:covid/features/home/presentation/bloc/home_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/repositories/local_storage_repository.dart';
@@ -19,6 +20,10 @@ Future<void> injectDependencies() async {
 
   getIt.registerFactory(
     () => AuthBloc(postLoginUseCase: getIt(), postRegisterUseCase: getIt()),
+  );
+
+  getIt.registerFactory(
+    () => HomeBloc(),
   );
 
   // Use cases

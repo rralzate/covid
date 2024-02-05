@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.6
   get_it: ^7.6.7
   google_fonts: ^6.1.0
+  intl: ^0.19.0
   modal_bottom_sheet: ^3.0.0-pre
   responsive_sizer: ^3.3.0+1
   rxdart: ^0.27.7
