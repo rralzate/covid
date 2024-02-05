@@ -1,3 +1,5 @@
+import 'package:covid/features/auth/presentation/screens/login_screen.dart';
+import 'package:covid/features/auth/presentation/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covid/features/auth/presentation/screens/splash_screen.dart';
@@ -10,6 +12,14 @@ class PageClassGenerator {
     switch (routeSettings.name) {
       case SplashScreen.routeName:
         builder = (context) => const SplashScreen();
+        break;
+
+      case LoginScreen.routeName:
+        builder = (context) => const LoginScreen();
+        break;
+
+      case RegisterScreen.routeName:
+        builder = (context) => const RegisterScreen();
         break;
 
       default:

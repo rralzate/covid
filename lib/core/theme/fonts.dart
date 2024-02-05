@@ -5,21 +5,21 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'colors.dart';
 
 /// This textStyle its for all Logo Text in the aplication
-TextStyle get textLogoStyle => GoogleFonts.jost(
+TextStyle get textLogoStyle => GoogleFonts.lato(
       color: mainBlack,
       fontSize: Adaptive.sp(30),
       fontWeight: FontWeight.bold,
     );
 
 /// This textStyle its for all Logo Text in the aplication
-TextStyle get textBlueLogoStyle => GoogleFonts.jost(
+TextStyle get textBlueLogoStyle => GoogleFonts.lato(
       color: secondColor,
       fontSize: Adaptive.sp(32),
       fontWeight: FontWeight.bold,
     );
 
 /// This textStyle its for all Text in the aplication
-TextStyle textStyleNormal(Color color) => GoogleFonts.jost(
+TextStyle textStyleNormal(Color color) => GoogleFonts.lato(
       color: color,
       fontSize: Adaptive.sp(16),
       fontWeight: FontWeight.w600,
@@ -27,7 +27,7 @@ TextStyle textStyleNormal(Color color) => GoogleFonts.jost(
 
 /// This textStyle its for all white Text in the aplication
 
-TextStyle get textWhiteStyle => GoogleFonts.jost(
+TextStyle get textWhiteStyle => GoogleFonts.lato(
       color: colorWhite,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(14),
@@ -35,7 +35,7 @@ TextStyle get textWhiteStyle => GoogleFonts.jost(
 
 /// This textStyle its for all white Text in the aplication
 
-TextStyle get textWhiteStyleDay => GoogleFonts.jost(
+TextStyle get textWhiteStyleDay => GoogleFonts.lato(
       color: colorWhite,
       fontWeight: FontWeight.w500,
       fontSize: Adaptive.sp(16),
@@ -43,13 +43,13 @@ TextStyle get textWhiteStyleDay => GoogleFonts.jost(
 
 /// This textStyle its for all white Text in the aplication
 
-TextStyle get textBlackStyleDay => GoogleFonts.jost(
+TextStyle get textBlackStyleDay => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.w500,
       fontSize: Adaptive.sp(16),
     );
 
-TextStyle get textBlackCardThin => GoogleFonts.jost(
+TextStyle get textBlackCardThin => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.w400,
       fontSize: Adaptive.sp(17),
@@ -57,7 +57,7 @@ TextStyle get textBlackCardThin => GoogleFonts.jost(
 
 /// This textStyle its for all white Text in the aplication
 
-TextStyle get textWhiteStyleButton => GoogleFonts.jost(
+TextStyle get textWhiteStyleButton => GoogleFonts.lato(
       color: colorWhite,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(17),
@@ -65,7 +65,7 @@ TextStyle get textWhiteStyleButton => GoogleFonts.jost(
 
 /// This textStyle its for all white Text in the aplication
 
-TextStyle get textBlackStyleButton => GoogleFonts.jost(
+TextStyle get textBlackStyleButton => GoogleFonts.lato(
       color: modalTextColor,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(17),
@@ -73,7 +73,7 @@ TextStyle get textBlackStyleButton => GoogleFonts.jost(
 
 /// This textStyle its for all white Text Outlined in the aplication
 
-TextStyle get textsecondColorStyle => GoogleFonts.jost(
+TextStyle get textsecondColorStyle => GoogleFonts.lato(
       color: secondColor,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(16),
@@ -81,37 +81,37 @@ TextStyle get textsecondColorStyle => GoogleFonts.jost(
 
 /// This textStyle its for all black Text in the aplication
 
-TextStyle get textBlackStyle => GoogleFonts.jost(
-      color: mainBlack,
+TextStyle get textBlackStyle => GoogleFonts.lato(
+      color: primaryColor,
       fontWeight: FontWeight.normal,
-      fontSize: Adaptive.sp(15),
+      fontSize: Adaptive.sp(13),
     );
 
 /// This textStyle its for all black Text in the aplication
 
-TextStyle get textBlackStyleBold => GoogleFonts.jost(
-      color: mainBlack,
+TextStyle get textBlackStyleBold => GoogleFonts.lato(
+      color: primaryColor,
       fontWeight: FontWeight.bold,
-      fontSize: Adaptive.sp(15),
+      fontSize: Adaptive.sp(22),
     );
 
 /// This textStyle its for all black Text in the aplication
 
-TextStyle get textBlackStyleLitte => GoogleFonts.jost(
+TextStyle get textBlackStyleLitte => GoogleFonts.lato(
       color: modalTextColor,
       fontWeight: FontWeight.normal,
       fontSize: Adaptive.sp(14),
     );
 
 /// This textStyle its for all black Text in the aplication
-TextStyle get textBlueStyle => GoogleFonts.jost(
+TextStyle get textBlueStyle => GoogleFonts.lato(
       color: secondColor,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(15),
     );
 
 /// This textStyle its for all black Text in the aplication
-TextStyle get textBlueStyleSubtitle => GoogleFonts.jost(
+TextStyle get textBlueStyleSubtitle => GoogleFonts.lato(
       color: secondColor,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(18),
@@ -119,14 +119,14 @@ TextStyle get textBlueStyleSubtitle => GoogleFonts.jost(
 
 /// This textStyle its for all black Text in the aplication
 
-TextStyle get textBlackStyleTitle => GoogleFonts.jost(
+TextStyle get textBlackStyleTitle => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(22),
     );
 
 /// This textStyle its for all black code in the aplication
-TextStyle get textBlackStyleCode => GoogleFonts.jost(
+TextStyle get textBlackStyleCode => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.bold,
       fontSize: Adaptive.sp(22),
@@ -134,64 +134,64 @@ TextStyle get textBlackStyleCode => GoogleFonts.jost(
 
 /// This textStyle its for all black SubTitle in the aplication
 
-TextStyle get textBlackStyleSubTitle => GoogleFonts.jost(
+TextStyle get textBlackStyleSubTitle => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(18),
     );
 
-TextStyle get textRedStyleSubTitle => GoogleFonts.jost(
+TextStyle get textRedStyleSubTitle => GoogleFonts.lato(
       color: highlightGrey,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(18),
     );
-TextStyle get textWhiteStyleSubTitle => GoogleFonts.jost(
+TextStyle get textWhiteStyleSubTitle => GoogleFonts.lato(
       color: colorWhite,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(18),
     );
 
-TextStyle get textBlackStyleSubTitleLight => GoogleFonts.jost(
+TextStyle get textBlackStyleSubTitleLight => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.w400,
       fontSize: Adaptive.sp(16),
     );
 
-TextStyle get textBlackStyleSubTitleBold => GoogleFonts.jost(
+TextStyle get textBlackStyleSubTitleBold => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.bold,
       fontSize: Adaptive.sp(16),
     );
-TextStyle get textBlackNameUserCardBold => GoogleFonts.jost(
+TextStyle get textBlackNameUserCardBold => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.bold,
       fontSize: Adaptive.sp(17),
     );
 
-TextStyle get textGrayStyleInput => GoogleFonts.jost(
+TextStyle get textGrayStyleInput => GoogleFonts.lato(
       color: primaryColor,
       fontWeight: FontWeight.w500,
       fontSize: Adaptive.sp(17),
     );
 
-TextStyle get textGrayStylePlaceholder => GoogleFonts.jost(
+TextStyle get textGrayStylePlaceholder => GoogleFonts.lato(
       color: filledHintStyleColor,
       fontWeight: FontWeight.w500,
       fontSize: Adaptive.sp(15),
     );
 
-TextStyle get textBlackStyleThinDescription => GoogleFonts.jost(
+TextStyle get textBlackStyleThinDescription => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.normal,
       fontSize: Adaptive.sp(15),
     );
-TextStyle get textBlackStyleThinPositionUsercard => GoogleFonts.jost(
+TextStyle get textBlackStyleThinPositionUsercard => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.normal,
       fontSize: Adaptive.sp(16),
     );
 
-TextStyle get textGrayStyleThinDescription => GoogleFonts.jost(
+TextStyle get textGrayStyleThinDescription => GoogleFonts.lato(
       color: mainGrey,
       fontWeight: FontWeight.normal,
       fontSize: Adaptive.sp(15),
@@ -199,14 +199,14 @@ TextStyle get textGrayStyleThinDescription => GoogleFonts.jost(
 
 /// This textStyle its for all black Text in the aplication
 
-TextStyle get textBlackStyleTitleJost => GoogleFonts.jost(
+TextStyle get textBlackStyleTitleJost => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(22),
     );
 
 /// This textStyle its for all Text in the aplication
-TextStyle textStyleNormalJost(Color color) => GoogleFonts.jost(
+TextStyle textStyleNormalJost(Color color) => GoogleFonts.lato(
       color: color,
       fontSize: Adaptive.sp(16),
       fontWeight: FontWeight.w600,
@@ -214,7 +214,7 @@ TextStyle textStyleNormalJost(Color color) => GoogleFonts.jost(
 
 /// This textStyle its for all black Text in the aplication
 
-TextStyle get textBlackStyleTitle20px => GoogleFonts.jost(
+TextStyle get textBlackStyleTitle20px => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.w600,
       fontSize: Adaptive.sp(20),
