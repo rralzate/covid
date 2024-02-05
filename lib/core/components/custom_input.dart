@@ -50,7 +50,8 @@ class CustomInput extends StatelessWidget {
           obscureText: obscureText,
           onChanged: onChanged,
           maxLength: maxLength,
-          style: textGrayStyleInput,
+          style: textGrayStyleInput.copyWith(
+              color: Theme.of(context).colorScheme.primary),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           inputFormatters: inputFormatters,
           validator: validator,
@@ -61,7 +62,8 @@ class CustomInput extends StatelessWidget {
             errorMaxLines: 2,
             labelText: placeholder,
             counterText: '',
-            hintStyle: textGrayStylePlaceholder,
+            hintStyle: textGrayStylePlaceholder.copyWith(
+                color: Theme.of(context).colorScheme.primary),
           ),
         ),
         if (showCounter)

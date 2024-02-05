@@ -2,7 +2,7 @@ import 'package:covid/core/components/custom_input.dart';
 import 'package:covid/core/components/custom_loading.dart';
 import 'package:covid/core/routes/resource_icons.dart';
 import 'package:covid/core/theme/colors.dart';
-import 'package:covid/features/auth/domain/entities/login_entity.dart';
+
 import 'package:covid/features/auth/presentation/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorWhite,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: BlocProvider.value(
         value: authBloc,
         child: BlocConsumer<AuthBloc, AuthState>(listener: (ctx, state) async {
@@ -258,8 +258,9 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Row(children: [
             Text(
               "Olvidé mi contraseña",
-              style: textStyleNormal(mainblack)
-                  .copyWith(decoration: TextDecoration.underline),
+              style: textStyleNormal(mainblack).copyWith(
+                  decoration: TextDecoration.underline,
+                  color: Theme.of(context).colorScheme.primary),
             ),
           ]),
         ),
@@ -273,8 +274,9 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Row(children: [
             Text(
               "Registrarse",
-              style: textStyleNormal(mainblack)
-                  .copyWith(decoration: TextDecoration.underline),
+              style: textStyleNormal(mainblack).copyWith(
+                  decoration: TextDecoration.underline,
+                  color: Theme.of(context).colorScheme.primary),
             ),
           ]),
         ),

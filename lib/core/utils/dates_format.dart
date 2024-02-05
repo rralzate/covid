@@ -101,4 +101,15 @@ class DatesFormat {
 
   static String formatDateText(DateTime dateTime) =>
       DateFormat('dd/MM/yyyy', 'es_GT').format(dateTime);
+
+  static String convertIntToDateTime(int yearMonthDay) {
+    // Extract year, month, and day components from the integer
+    int year = yearMonthDay ~/ 10000;
+    int month = (yearMonthDay % 10000) ~/ 100;
+    int day = yearMonthDay % 100;
+
+    // Create a DateTime object
+
+    return DateFormat('dd.MM.yyyy', 'es_CO').format(DateTime(year, month, day));
+  }
 }

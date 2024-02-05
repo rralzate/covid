@@ -1,18 +1,18 @@
-import 'package:covid/core/components/custom_loading.dart';
 import 'package:covid/core/routes/resource_icons.dart';
 import 'package:covid/core/theme/colors.dart';
 import 'package:covid/features/auth/presentation/screens/login_screen.dart';
 
 import 'package:covid/features/home/presentation/bloc/home_bloc.dart';
+import 'package:covid/features/home/presentation/widget/dark_light_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/components/custom_dialog_box.dart';
 import '../../../../core/components/man_header.dart';
 import '../../../../injection_container.dart';
+import '../widget/card_covid_information.dart';
 import '../widget/card_device.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -25,37 +25,42 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _isLoading = false;
   HomeBloc homeBloc = getIt<HomeBloc>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorWhite,
-      body: BlocProvider.value(
-        value: homeBloc,
-        child: BlocConsumer<HomeBloc, HomeState>(listener: (ctx, state) async {
-          // ------// ------// ------// ------// ------// ------// ------
-        }, builder: (context, state) {
-          return SafeArea(
-            child: _isLoading ? const CustomLoadingPage() : _contentBody(),
-          );
-        }),
+      backgroundColor: Theme.of(context).colorScheme.background,
+      body: _contentBody(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: CircleAvatar(
+        backgroundColor: secondColor,
+        child: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          onPressed: () {
+            // Handle the button press
+            print('FloatingActionButton pressed!');
+          },
+          child: const CircleAvatar(
+              backgroundColor: secondColor,
+              child: Icon(
+                Icons.add,
+                color: colorWhite,
+              )), // Add your icon or custom widget here
+        ),
       ),
     );
   }
 
-  Future<void> _success() async {
-    //Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-  }
   Widget _contentBody() {
     return Stack(
       children: [
         _header(),
+        const CardCovidInformation(),
         Positioned(
           right: 5.w,
           left: 5.w,
-          child: CardDevice(),
+          child: const CardDevice(),
         ),
         _principalBody(),
       ],

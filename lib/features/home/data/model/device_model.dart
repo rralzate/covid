@@ -1,65 +1,41 @@
 import 'dart:convert';
 
-List<DeviceModel> deviceModelFromJson(String str) => List<DeviceModel>.from(
-    json.decode(str).map((x) => DeviceModel.fromJson(x)));
+import 'package:covid/features/home/domain/entities/device_entity.dart';
 
-String deviceModelToJson(List<DeviceModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
-class DeviceModel {
-  final int date;
-  final int states;
-  final int positive;
-  final int negative;
-  final int pending;
-  final int hospitalizedCurrently;
-  final int hospitalizedCumulative;
-  final int inIcuCurrently;
-  final int inIcuCumulative;
-  final int onVentilatorCurrently;
-  final int onVentilatorCumulative;
-  final String dateChecked;
-  final int death;
-  final int hospitalized;
-  final int totalTestResults;
-  final String lastModified;
-  final dynamic recovered;
-  final int total;
-  final int posNeg;
-  final int deathIncrease;
-  final int hospitalizedIncrease;
-  final int negativeIncrease;
-  final int positiveIncrease;
-  final int totalTestResultsIncrease;
-  final String hash;
-
+class DeviceModel extends DeviceEntity {
   DeviceModel({
-    required this.date,
-    required this.states,
-    required this.positive,
-    required this.negative,
-    required this.pending,
-    required this.hospitalizedCurrently,
-    required this.hospitalizedCumulative,
-    required this.inIcuCurrently,
-    required this.inIcuCumulative,
-    required this.onVentilatorCurrently,
-    required this.onVentilatorCumulative,
-    required this.dateChecked,
-    required this.death,
-    required this.hospitalized,
-    required this.totalTestResults,
-    required this.lastModified,
-    required this.recovered,
-    required this.total,
-    required this.posNeg,
-    required this.deathIncrease,
-    required this.hospitalizedIncrease,
-    required this.negativeIncrease,
-    required this.positiveIncrease,
-    required this.totalTestResultsIncrease,
-    required this.hash,
+    required super.date,
+    required super.states,
+    required super.positive,
+    required super.negative,
+    required super.pending,
+    required super.hospitalizedCurrently,
+    required super.hospitalizedCumulative,
+    required super.inIcuCurrently,
+    required super.inIcuCumulative,
+    required super.onVentilatorCurrently,
+    required super.onVentilatorCumulative,
+    required super.dateChecked,
+    required super.death,
+    required super.hospitalized,
+    required super.totalTestResults,
+    required super.lastModified,
+    required super.recovered,
+    required super.total,
+    required super.posNeg,
+    required super.deathIncrease,
+    required super.hospitalizedIncrease,
+    required super.negativeIncrease,
+    required super.positiveIncrease,
+    required super.totalTestResultsIncrease,
+    required super.hash,
   });
+
+  List<DeviceModel> deviceModelFromJson(String str) => List<DeviceModel>.from(
+      json.decode(str).map((x) => DeviceModel.fromJson(x)));
+
+  String deviceModelToJson(List<DeviceModel> data) =>
+      json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
   factory DeviceModel.fromJson(Map<String, dynamic> json) => DeviceModel(
         date: json["date"],

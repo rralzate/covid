@@ -28,7 +28,7 @@ class ManHeader extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 5.w, left: 12.w),
+            margin: EdgeInsets.only(top: 2.h, right: 5.w, left: 12.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

@@ -7,3 +7,13 @@ class ServerException implements Exception {
     this.message,
   }) : super();
 }
+
+class ConnectionException implements Exception {}
+
+class AuthenticationException implements Exception {
+  final String? message;
+
+  AuthenticationException({
+    this.message,
+  }) : super();
+}

@@ -1,14 +1,12 @@
 import 'dart:convert';
 
-class LoginModel {
-  final String documentType;
-  final int documentNumber;
-  final String password;
+import 'package:covid/features/auth/domain/entities/login_entity.dart';
 
-  LoginModel({
-    required this.documentType,
-    required this.documentNumber,
-    required this.password,
+class LoginModel extends LoginEntity {
+  const LoginModel({
+    required super.documentType,
+    required super.documentNumber,
+    required super.password,
   });
 
   factory LoginModel.loginModelFromJson(String str) =>

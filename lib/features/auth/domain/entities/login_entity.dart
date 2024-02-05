@@ -11,12 +11,6 @@ class LoginEntity extends Equatable {
     required this.password,
   });
 
-  factory LoginEntity.fromJson(Map<String, dynamic> json) => LoginEntity(
-        documentType: json["documentType"],
-        documentNumber: json["documentNumber"],
-        password: json["password"],
-      );
-
   const LoginEntity.empty()
       : documentNumber = 0,
         documentType = "",

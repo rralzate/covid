@@ -6,3 +6,10 @@ sealed class HomeEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+// Get coupon promotion detail /// -----------------------------------/// -----------------------------------/// -----------------------------------
+
+class GetCovidInformationEvents extends HomeEvent {
+  @override
+  List<Object> get props => [];
+}

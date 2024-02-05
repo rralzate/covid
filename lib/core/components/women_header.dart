@@ -35,7 +35,7 @@ class WomenHeader extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 Text(
-                  "Evertec",
+                  "",
                   style: textBlackStyleBold,
                   textAlign: TextAlign.right,
                 ),
