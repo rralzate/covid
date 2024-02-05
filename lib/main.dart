@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:covid/injection_container.dart';
 
-void main() => runApp(const MyApp());
+import 'package:intl/date_symbol_data_local.dart'; // Import this package
+import 'package:provider/provider.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+import 'core/theme/theme_provider.dart';
+import 'maincommon.dart';
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Covid-19',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
-    );
-  }
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting();
+  await injectDependencies();
+
+  runApp(
+    const MyApp(),
+  );
 }
