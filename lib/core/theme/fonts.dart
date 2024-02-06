@@ -81,8 +81,8 @@ TextStyle get textsecondColorStyle => GoogleFonts.lato(
 
 /// This textStyle its for all black Text in the aplication
 
-TextStyle get textBlackStyle => GoogleFonts.lato(
-      color: primaryColor,
+TextStyle textBlackStyle(Color color) => GoogleFonts.lato(
+      color: color,
       fontWeight: FontWeight.normal,
       fontSize: Adaptive.sp(13),
     );
@@ -157,8 +157,8 @@ TextStyle get textBlackStyleSubTitleLight => GoogleFonts.lato(
       fontSize: Adaptive.sp(16),
     );
 
-TextStyle get textBlackStyleSubTitleBold => GoogleFonts.lato(
-      color: mainBlack,
+TextStyle textBlackStyleSubTitleBold(Color color) => GoogleFonts.lato(
+      color: color,
       fontWeight: FontWeight.bold,
       fontSize: Adaptive.sp(14),
     );
@@ -168,14 +168,14 @@ TextStyle get textBlackNameUserCardBold => GoogleFonts.lato(
       fontSize: Adaptive.sp(16),
     );
 
-TextStyle get textGrayStyleInput => GoogleFonts.lato(
-      color: primaryColor,
+TextStyle textGrayStyleInput(Color color) => GoogleFonts.lato(
+      color: color,
       fontWeight: FontWeight.w500,
       fontSize: Adaptive.sp(17),
     );
 
-TextStyle get textGrayStylePlaceholder => GoogleFonts.lato(
-      color: filledHintStyleColor,
+TextStyle textGrayStylePlaceholder(Color color) => GoogleFonts.lato(
+      color: color,
       fontWeight: FontWeight.w500,
       fontSize: Adaptive.sp(15),
     );

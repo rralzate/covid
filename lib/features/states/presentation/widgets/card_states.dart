@@ -73,11 +73,12 @@ class _CardStatesState extends State<CardStates> {
               ),
               Text(
                 "Casos totales: ${widget.cases}",
-                style: textBlackStyle.copyWith(fontWeight: FontWeight.bold),
+                style: textBlackStyle(primaryColor)
+                    .copyWith(fontWeight: FontWeight.bold),
               ),
               Text(
                 "Ultima modificación: ${widget.lastUpdate}",
-                style: textBlackStyle,
+                style: textBlackStyle(primaryColor),
               ),
             ],
           ),

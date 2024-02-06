@@ -1,3 +1,4 @@
+import 'package:covid/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -31,7 +32,7 @@ class WomenHeader extends StatelessWidget {
               children: [
                 Text(
                   "Bienvenido a:",
-                  style: textBlackStyle,
+                  style: textBlackStyle(mainBlack),
                   textAlign: TextAlign.left,
                 ),
                 Text(
