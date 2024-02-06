@@ -12,7 +12,8 @@ void main() async {
   await initializeDateFormatting();
   await injectDependencies();
 
-  runApp(
-    const MyApp(),
-  );
+  runApp(ChangeNotifierProvider(
+    create: (context) => ThemeProvider(),
+    child: const MyApp(),
+  ));
 }

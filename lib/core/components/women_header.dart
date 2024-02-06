@@ -1,3 +1,4 @@
+import 'package:covid/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -25,17 +26,17 @@ class WomenHeader extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 33.h, right: 4.w, left: 2.w),
+            margin: EdgeInsets.only(top: 31.h, right: 4.w, left: 2.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Bienvenido a:",
-                  style: textBlackStyle,
+                  style: textBlackStyle(mainBlack),
                   textAlign: TextAlign.left,
                 ),
                 Text(
-                  "",
+                  "Evertec",
                   style: textBlackStyleBold,
                   textAlign: TextAlign.right,
                 ),

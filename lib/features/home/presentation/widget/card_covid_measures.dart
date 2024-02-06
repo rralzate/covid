@@ -7,45 +7,39 @@ class CardCovidMeaures extends StatelessWidget {
     super.key,
     required this.measure,
     required this.title,
-    this.visible = true,
   });
 
   final String measure;
   final String title;
-  final bool? visible;
 
   @override
   Widget build(BuildContext context) {
-    return Visibility(
-      visible: visible!,
-      child: Container(
-        padding: EdgeInsets.all(2.h),
-        width: 38.w,
-        height: 8.h,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Text(
-                measure,
-                style: textBlackStyleSubTitleBold,
-              ),
+    Color color = Theme.of(context).colorScheme.primary;
+
+    return Container(
+      padding: EdgeInsets.all(2.h),
+      width: 38.w,
+      height: 8.h,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.background,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Text(
+              measure,
+              style: textBlackStyleSubTitleBold(color),
             ),
-            Expanded(
-              child: Text(
-                title,
-                style: textBlackStyle,
-              ),
+          ),
+          Expanded(
+            child: Text(
+              title,
+              style: textBlackStyle(color),
             ),
-            SizedBox(
-              height: 2.w,
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

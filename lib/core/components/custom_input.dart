@@ -50,8 +50,7 @@ class CustomInput extends StatelessWidget {
           obscureText: obscureText,
           onChanged: onChanged,
           maxLength: maxLength,
-          style: textGrayStyleInput.copyWith(
-              color: Theme.of(context).colorScheme.primary),
+          style: textGrayStyleInput(Theme.of(context).colorScheme.primary),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           inputFormatters: inputFormatters,
           validator: validator,
@@ -62,8 +61,8 @@ class CustomInput extends StatelessWidget {
             errorMaxLines: 2,
             labelText: placeholder,
             counterText: '',
-            hintStyle: textGrayStylePlaceholder.copyWith(
-                color: Theme.of(context).colorScheme.primary),
+            hintStyle:
+                textGrayStylePlaceholder(Theme.of(context).colorScheme.primary),
           ),
         ),
         if (showCounter)
@@ -73,7 +72,7 @@ class CustomInput extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: Text(
                 '${controller?.text.length}${maxLength != null ? ' / $maxLength' : ''}',
-                style: textBlackStyle,
+                style: textBlackStyle(Theme.of(context).colorScheme.primary),
               ),
             ),
           ),

@@ -163,7 +163,7 @@ class _CardCovidInformationState extends State<CardCovidInformation> {
           ),
           Text(
             "El proyecto COVID Tracking ha finalizado toda recopilación de datos a partir del 7 de marzo de 2021",
-            style: textBlackStyle,
+            style: textBlackStyle(primaryColor),
           )
         ],
       ),

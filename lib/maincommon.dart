@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           Locale('en', 'US'),
           Locale('es', 'ES'),
         ],
-        darkTheme: appThemeLight,
+        darkTheme: Provider.of<ThemeProvider>(context).themeData,
         initialRoute: SplashScreen.routeName,
         onGenerateRoute: PageClassGenerator.getNamedScreen,
       );

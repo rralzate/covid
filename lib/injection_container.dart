@@ -2,6 +2,7 @@ import 'package:covid/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:covid/features/home/data/respositories/home_repository_impl.dart';
 import 'package:covid/features/home/domain/repositories/home_repository.dart';
 import 'package:covid/features/home/presentation/bloc/home_bloc.dart';
+import 'package:covid/features/states/presentation/bloc/states_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import 'core/network/network_info.dart';
@@ -17,6 +18,12 @@ import 'features/auth/domain/usecases/post_register_use_case.dart';
 import 'features/home/data/datasources/home_datasource.dart';
 import 'features/home/data/datasources/home_datasource_impl.dart';
 import 'features/home/domain/usescases/get_covid_information_usecase.dart';
+import 'features/states/data/datasources/states_datasource.dart';
+import 'features/states/data/datasources/states_datasource_impl.dart';
+import 'features/states/data/repositories/states_repository_impl.dart';
+import 'features/states/domain/repositories/states_repository.dart';
+import 'features/states/domain/usescases/get_list_states_current_usecase.dart';
+import 'features/states/domain/usescases/get_list_states_usescase.dart';
 
 final getIt = GetIt.instance;
 
@@ -33,6 +40,13 @@ Future<void> injectDependencies() async {
     () => HomeBloc(getCovidInformationUseCase: getIt()),
   );
 
+  getIt.registerFactory(
+    () => StatesBloc(
+      getListStatesUseCase: getIt(),
+      getListStatesCurrentUseCase: getIt(),
+    ),
+  );
+
   // Use cases
   //Login
   getIt.registerLazySingleton(() => PostLoginUseCase(repository: getIt()));
@@ -41,6 +55,12 @@ Future<void> injectDependencies() async {
   //Home
   getIt.registerLazySingleton(
       () => GetCovidInformationUseCase(repository: getIt()));
+
+  //States
+  getIt.registerLazySingleton(() => GetListStatesUseCase(repository: getIt()));
+
+  getIt.registerLazySingleton(
+      () => GetListStatesCurrentUseCase(repository: getIt()));
 
   // Repository
   getIt.registerLazySingleton<AuthRepository>(
@@ -56,10 +76,20 @@ Future<void> injectDependencies() async {
     ),
   );
 
+  getIt.registerLazySingleton<StatesRepository>(
+    () => StatesRepositoryImpl(
+      statesDatasource: getIt(),
+    ),
+  );
+
   //Data Source
   getIt.registerLazySingleton<AuthDataSource>(() => AuthDatasouceImpl());
 
   getIt.registerLazySingleton<HomeDatasource>(() => HomeDatasourceImpl(
+        apiClient: getIt(),
+      ));
+
+  getIt.registerLazySingleton<StatesDatasource>(() => StatesDatasourceImpl(
         apiClient: getIt(),
       ));
 

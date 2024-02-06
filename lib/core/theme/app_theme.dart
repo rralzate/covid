@@ -95,17 +95,23 @@ final inputDecorationThemeDark = InputDecorationTheme(
     borderRadius: BorderRadius.circular(10.0),
   ),
   hintStyle: const TextStyle(
-    color: mainBlack,
+    color: colorWhite,
     fontWeight: FontWeight.bold,
   ),
   errorStyle: const TextStyle(
-    color: mainBlack,
+    color: colorWhite,
     fontWeight: FontWeight.bold,
   ),
 );
 
 const cupertinoOverrideTheme = CupertinoThemeData(
   primaryColor: primaryColor,
+  textTheme: CupertinoTextThemeData(
+    textStyle: TextStyle(letterSpacing: 0),
+  ),
+);
+const cupertinoOverrideThemeDark = CupertinoThemeData(
+  primaryColor: colorWhite,
   textTheme: CupertinoTextThemeData(
     textStyle: TextStyle(letterSpacing: 0),
   ),
