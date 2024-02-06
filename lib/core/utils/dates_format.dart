@@ -76,9 +76,7 @@ class DatesFormat {
   }
 
   static String formatDateFormalText(DateTime dateTime) =>
-      DateFormat("'Guatemala', d 'de' MMMM 'del' yyyy", 'es_GT')
-          .format(dateTime)
-          .toLowerCase();
+      DateFormat(" d'.'MMMM'.'yyyy", 'es_CO').format(dateTime).toLowerCase();
 
   static String formatDateToShortText(DateTime dateTime) =>
       DateFormat('dd/MM/yyyy', 'es_GT').format(dateTime).toLowerCase();

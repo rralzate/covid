@@ -9,7 +9,7 @@ sealed class StatesState extends Equatable {
 
 final class StatesInitial extends StatesState {}
 
-// Get Covid information /// -----------------------------------/// -----------------------------------/// -----------------------------------
+// Get States information /// -----------------------------------/// -----------------------------------/// -----------------------------------
 class InitGetStatesState extends StatesState {
   @override
   List<Object?> get props => [];
@@ -45,6 +45,47 @@ class GetStatesState extends StatesState {
     return ''' 
       States  Entity: 
         States: ${listStates.toString()}
+    ''';
+  }
+}
+// -----------------------------------/// -----------------------------------/// -----------------------------------/// -----------------------------------
+
+// Get Current States information /// -----------------------------------/// -----------------------------------/// -----------------------------------
+class InitGetStatesCurrentState extends StatesState {
+  @override
+  List<Object?> get props => [];
+}
+
+class LoadingGetStatesCurrentState extends StatesState {
+  @override
+  List<Object?> get props => [];
+}
+
+class SuccessGetStatesCurrentState extends StatesState {
+  const SuccessGetStatesCurrentState(this.listStatesCurrent);
+  final List<StatesCurrentEntity> listStatesCurrent;
+
+  @override
+  List<Object?> get props => [listStatesCurrent];
+}
+
+class FailedGetStatesCurrentState extends StatesState {
+  @override
+  List<Object?> get props => [];
+}
+
+class GetStatesCurrentState extends StatesState {
+  const GetStatesCurrentState(this.listStatesCurrent);
+  final List<StatesCurrentEntity> listStatesCurrent;
+
+  @override
+  List<Object?> get props => [listStatesCurrent];
+
+  @override
+  String toString() {
+    return ''' 
+      Current States  Entity: 
+        Current States: ${listStatesCurrent.toString()}
     ''';
   }
 }

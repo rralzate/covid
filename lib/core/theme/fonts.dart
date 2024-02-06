@@ -165,7 +165,7 @@ TextStyle get textBlackStyleSubTitleBold => GoogleFonts.lato(
 TextStyle get textBlackNameUserCardBold => GoogleFonts.lato(
       color: mainBlack,
       fontWeight: FontWeight.bold,
-      fontSize: Adaptive.sp(17),
+      fontSize: Adaptive.sp(16),
     );
 
 TextStyle get textGrayStyleInput => GoogleFonts.lato(

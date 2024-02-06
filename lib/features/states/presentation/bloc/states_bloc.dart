@@ -1,3 +1,4 @@
+import 'package:covid/features/states/domain/entities/states_current_entity.dart';
 import 'package:covid/features/states/domain/entities/states_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -19,6 +20,10 @@ class StatesBloc extends Bloc<StatesEvent, StatesState> {
   }) : super(StatesInitial()) {
     on<GetStatesEvents>((event, emit) async {
       emit(await _getStates(event: event, emit: emit));
+    });
+
+    on<GetStatesCurrentEvents>((event, emit) async {
+      emit(await _getStatesCurrent(event: event, emit: emit));
     });
   }
 
@@ -44,22 +49,22 @@ class StatesBloc extends Bloc<StatesEvent, StatesState> {
   }
 
   Future<StatesState> _getStatesCurrent({
-    required GetStatesEvents event,
+    required GetStatesCurrentEvents event,
     required Emitter<StatesState> emit,
   }) async {
-    emit(LoadingGetStatesState());
-    final result = await getListStatesUseCase(
+    emit(LoadingGetStatesCurrentState());
+    final result = await getListStatesCurrentUseCase(
       NoParams(),
     );
 
     return result.fold(
       (l) {
-        emit(FailedGetStatesState());
-        return const GetStatesState([]);
+        emit(FailedGetStatesCurrentState());
+        return const GetStatesCurrentState([]);
       },
       (resp) {
-        emit(SuccessGetStatesState(resp));
-        return GetStatesState(resp);
+        emit(SuccessGetStatesCurrentState(resp));
+        return GetStatesCurrentState(resp);
       },
     );
   }

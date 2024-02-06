@@ -1,3 +1,4 @@
+import 'package:covid/core/routes/resource_icons.dart';
 import 'package:covid/core/theme/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -10,12 +11,14 @@ class CardStates extends StatefulWidget {
     required this.name,
     required this.cases,
     required this.lastUpdate,
+    required this.imageUrl,
     required this.onTap,
   });
 
   final String name;
   final String cases;
   final String lastUpdate;
+  final String imageUrl;
   final VoidCallback onTap;
 
   @override
@@ -37,7 +40,27 @@ class _CardStatesState extends State<CardStates> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(Icons.flag_circle_rounded),
+          Image.network(
+            widget.imageUrl,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => Image.asset(
+              logo,
+              fit: BoxFit.cover,
+              width: 7.w,
+              height: 4.h,
+            ),
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              }
+              return Center(
+                child: Container(
+                  color: mainWhite,
+                  child: Image.asset(logo, fit: BoxFit.fill),
+                ),
+              );
+            },
+          ),
           SizedBox(
             width: 5.w,
           ),

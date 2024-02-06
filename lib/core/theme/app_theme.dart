@@ -95,17 +95,23 @@ final inputDecorationThemeDark = InputDecorationTheme(
     borderRadius: BorderRadius.circular(10.0),
   ),
   hintStyle: const TextStyle(
-    color: mainBlack,
+    color: colorWhite,
     fontWeight: FontWeight.bold,
   ),
   errorStyle: const TextStyle(
-    color: mainBlack,
+    color: colorWhite,
     fontWeight: FontWeight.bold,
   ),
 );
 
 const cupertinoOverrideTheme = CupertinoThemeData(
   primaryColor: primaryColor,
+  textTheme: CupertinoTextThemeData(
+    textStyle: TextStyle(letterSpacing: 0),
+  ),
+);
+const cupertinoOverrideThemeDark = CupertinoThemeData(
+  primaryColor: colorWhite,
   textTheme: CupertinoTextThemeData(
     textStyle: TextStyle(letterSpacing: 0),
   ),
@@ -139,8 +145,8 @@ final appThemeDark = ThemeData(
   scaffoldBackgroundColor: paymentColor,
   textTheme: GoogleFonts.assistantTextTheme(GoogleFonts.latoTextTheme()),
   cupertinoOverrideTheme: cupertinoOverrideTheme,
-  bottomNavigationBarTheme: bottomNavigationBarTheme,
-  inputDecorationTheme: inputDecorationTheme,
+  bottomNavigationBarTheme: bottomNavigationBarThemeDark,
+  inputDecorationTheme: inputDecorationThemeDark,
   appBarTheme: appBarThemeDark,
   colorScheme: colorSchemeDark.copyWith(error: highlightError),
 );
