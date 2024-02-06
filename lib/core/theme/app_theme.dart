@@ -139,8 +139,8 @@ final appThemeDark = ThemeData(
   scaffoldBackgroundColor: paymentColor,
   textTheme: GoogleFonts.assistantTextTheme(GoogleFonts.latoTextTheme()),
   cupertinoOverrideTheme: cupertinoOverrideTheme,
-  bottomNavigationBarTheme: bottomNavigationBarThemeDark,
-  inputDecorationTheme: inputDecorationThemeDark,
+  bottomNavigationBarTheme: bottomNavigationBarTheme,
+  inputDecorationTheme: inputDecorationTheme,
   appBarTheme: appBarThemeDark,
   colorScheme: colorSchemeDark.copyWith(error: highlightError),
 );

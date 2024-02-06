@@ -41,9 +41,6 @@ class CardCovidMeaures extends StatelessWidget {
                 style: textBlackStyle,
               ),
             ),
-            SizedBox(
-              height: 2.w,
-            ),
           ],
         ),
       ),

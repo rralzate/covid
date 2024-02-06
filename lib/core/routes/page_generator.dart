@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:covid/features/auth/presentation/screens/splash_screen.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
+import '../../features/states/presentation/screens/states_screen.dart';
+
 class PageClassGenerator {
   static Route<dynamic> getNamedScreen(RouteSettings routeSettings) {
     Widget Function(BuildContext) builder;
@@ -25,6 +27,10 @@ class PageClassGenerator {
 
       case HomeScreen.routeName:
         builder = (context) => const HomeScreen();
+        break;
+
+      case StatesScreen.routeName:
+        builder = (context) => const StatesScreen();
         break;
 
       default:

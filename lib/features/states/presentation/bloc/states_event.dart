@@ -1,7 +1,7 @@
-part of 'home_bloc.dart';
+part of 'states_bloc.dart';
 
-sealed class HomeEvent extends Equatable {
-  const HomeEvent();
+sealed class StatesEvent extends Equatable {
+  const StatesEvent();
 
   @override
   List<Object> get props => [];
@@ -9,7 +9,12 @@ sealed class HomeEvent extends Equatable {
 
 // Get Covid Information /// -----------------------------------/// -----------------------------------/// -----------------------------------
 
-class GetCovidInformationEvents extends HomeEvent {
+class GetStatesEvents extends StatesEvent {
+  @override
+  List<Object> get props => [];
+}
+
+class GetStatesCurrentEvents extends StatesEvent {
   @override
   List<Object> get props => [];
 }

@@ -42,7 +42,10 @@ class ManHeader extends StatelessWidget {
                         onTap: back,
                         child: const CircleAvatar(
                           backgroundColor: colorWhite,
-                          child: Icon(Icons.logout_rounded),
+                          child: Icon(
+                            Icons.logout_rounded,
+                            color: mainBlack,
+                          ),
                         ),
                       )
                     : const SizedBox.shrink()

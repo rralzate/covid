@@ -3,15 +3,18 @@ import 'package:covid/core/theme/colors.dart';
 import 'package:covid/features/auth/presentation/screens/login_screen.dart';
 
 import 'package:covid/features/home/presentation/bloc/home_bloc.dart';
-import 'package:covid/features/home/presentation/widget/dark_light_theme.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../core/components/custom_dialog_box.dart';
 import '../../../../core/components/man_header.dart';
+import '../../../../core/theme/theme_provider.dart';
 import '../../../../injection_container.dart';
+import '../../../states/presentation/screens/states_screen.dart';
 import '../widget/card_covid_information.dart';
 import '../widget/card_device.dart';
 
@@ -26,6 +29,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   HomeBloc homeBloc = getIt<HomeBloc>();
+  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.transparent,
           onPressed: () {
             // Handle the button press
-            print('FloatingActionButton pressed!');
+            Navigator.pushNamed(context, StatesScreen.routeName);
           },
           child: const CircleAvatar(
               backgroundColor: secondColor,
@@ -62,8 +66,48 @@ class _HomeScreenState extends State<HomeScreen> {
           left: 5.w,
           child: const CardDevice(),
         ),
-        _principalBody(),
+        _darkLightButton(),
       ],
+    );
+  }
+
+  Positioned _darkLightButton() {
+    return Positioned(
+      bottom: 47.h,
+      right: 6.w,
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: Material(
+          color: secondColor,
+          borderRadius: BorderRadius.circular(20.0),
+          elevation: 4.0,
+          child: InkWell(
+            onTap: () {
+              // Toggle between dark and light themes
+              setState(() {
+                isDarkMode = !isDarkMode;
+              });
+              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+            },
+            borderRadius: BorderRadius.circular(20.0),
+            child: Container(
+              padding: const EdgeInsets.all(12.0),
+              child: isDarkMode
+                  ? const Icon(
+                      Icons.brightness_7,
+                      color: Colors.white,
+                    )
+                  : const Icon(
+                      Icons.brightness_6,
+                      color: Colors.white,
+                    ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -73,39 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
       back: () {
         Navigator.pushReplacementNamed(context, LoginScreen.routeName);
       },
-    );
-  }
-
-  Widget _principalBody() {
-    return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 2.h),
-      physics:
-          const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-      children: [
-        _loginForm(),
-      ],
-    );
-  }
-
-  Widget _loginForm() {
-    return Container(
-      margin: EdgeInsets.only(top: 42.h),
-      padding: EdgeInsets.all(2.w),
-      width: double.infinity,
-      child: Column(children: [
-        SizedBox(
-          height: 5.h,
-        ),
-        SizedBox(
-          height: 1.h,
-        ),
-        SizedBox(
-          height: 1.h,
-        ),
-        SizedBox(
-          height: 5.h,
-        ),
-      ]),
     );
   }
 
