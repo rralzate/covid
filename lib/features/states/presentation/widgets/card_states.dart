@@ -12,14 +12,12 @@ class CardStates extends StatefulWidget {
     required this.cases,
     required this.lastUpdate,
     required this.imageUrl,
-    required this.onTap,
   });
 
   final String name;
   final String cases;
   final String lastUpdate;
   final String imageUrl;
-  final VoidCallback onTap;
 
   @override
   State<CardStates> createState() => _CardStatesState();
@@ -83,12 +81,9 @@ class _CardStatesState extends State<CardStates> {
             ],
           ),
           const Spacer(),
-          IconButton(
-            onPressed: widget.onTap,
-            icon: const Icon(
-              Icons.chevron_right_rounded,
-              color: mainBlack,
-            ),
+          const Icon(
+            Icons.chevron_right_rounded,
+            color: mainBlack,
           ),
         ],
       ),

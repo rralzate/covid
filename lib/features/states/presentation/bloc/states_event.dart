@@ -18,3 +18,13 @@ class GetStatesCurrentEvents extends StatesEvent {
   @override
   List<Object> get props => [];
 }
+
+class GetRegionDetailEvents extends StatesEvent {
+  final String regionState;
+
+  const GetRegionDetailEvents({required this.regionState});
+  @override
+  List<Object> get props => [
+        regionState,
+      ];
+}

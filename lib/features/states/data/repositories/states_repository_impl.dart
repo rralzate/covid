@@ -1,4 +1,5 @@
 import 'package:covid/core/network/failure.dart';
+import 'package:covid/features/states/domain/entities/region_detail_entity.dart';
 
 import 'package:covid/features/states/domain/entities/states_current_entity.dart';
 
@@ -34,6 +35,20 @@ class StatesRepositoryImpl implements StatesRepository {
   Future<Either<Failure, List<StatesCurrentEntity>>> getStatesCurrent() async {
     try {
       final result = await statesDatasource.getStatesCurrent();
+
+      return Right(result);
+    } on ServerException catch (e) {
+      return Left(ErrorFailure(error: e.message));
+    } on Object catch (e) {
+      return Left(ErrorFailure(error: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, RegionDetailEntity>> getRegionDetailByState(
+      String regionState) async {
+    try {
+      final result = await statesDatasource.getRegionDetailByState(regionState);
 
       return Right(result);
     } on ServerException catch (e) {

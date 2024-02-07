@@ -91,4 +91,43 @@ class GetStatesCurrentState extends StatesState {
 }
 // -----------------------------------/// -----------------------------------/// -----------------------------------/// -----------------------------------
 
+// Get States information /// -----------------------------------/// -----------------------------------/// -----------------------------------
+class InitGetRegionDetailState extends StatesState {
+  @override
+  List<Object?> get props => [];
+}
 
+class LoadingGetRegionDetailState extends StatesState {
+  @override
+  List<Object?> get props => [];
+}
+
+class SuccessGetRegionDetailState extends StatesState {
+  const SuccessGetRegionDetailState(this.entity);
+  final RegionDetailEntity entity;
+
+  @override
+  List<Object?> get props => [entity];
+}
+
+class FailedGetRegionDetailState extends StatesState {
+  @override
+  List<Object?> get props => [];
+}
+
+class GetRegionDetailState extends StatesState {
+  const GetRegionDetailState(this.entity);
+  final RegionDetailEntity entity;
+
+  @override
+  List<Object?> get props => [entity];
+
+  @override
+  String toString() {
+    return ''' 
+      Region  Entity: 
+        Region detail: ${entity.toString()}
+    ''';
+  }
+}
+// -----------------------------------/// -----------------------------------/// -----------------------------------/// -----------------------------------

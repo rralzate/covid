@@ -6,11 +6,9 @@ import 'package:covid/features/home/presentation/bloc/home_bloc.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../../../core/components/custom_dialog_box.dart';
 import '../../../../core/components/man_header.dart';
 import '../../../../core/theme/theme_provider.dart';
 import '../../../../injection_container.dart';
@@ -73,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Positioned _darkLightButton() {
     return Positioned(
-      bottom: 47.h,
+      bottom: 50.h,
       right: 6.w,
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -118,43 +116,5 @@ class _HomeScreenState extends State<HomeScreen> {
         Navigator.pushReplacementNamed(context, LoginScreen.routeName);
       },
     );
-  }
-
-  Future<void> _errorMessage(String message) async {
-    await showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return CustomDialogBox(
-              icon: SvgPicture.asset(
-                warningModalSVG,
-                colorFilter:
-                    const ColorFilter.mode(secondColor, BlendMode.srcIn),
-              ),
-              title: 'Lo sentimos',
-              descriptions: message,
-              confirmText: "Aceptar",
-              onAccept: () {
-                Navigator.pop(context);
-              });
-        });
-  }
-
-  Future<void> _message(String message) async {
-    await showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return CustomDialogBox(
-              icon: SvgPicture.asset(
-                warningModalSVG,
-                colorFilter:
-                    const ColorFilter.mode(secondColor, BlendMode.srcIn),
-              ),
-              title: 'Hola',
-              descriptions: message,
-              confirmText: "Aceptar",
-              onAccept: () {
-                Navigator.pop(context);
-              });
-        });
   }
 }

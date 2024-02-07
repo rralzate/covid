@@ -1,3 +1,4 @@
+import 'package:covid/features/states/domain/entities/region_detail_entity.dart';
 import 'package:covid/features/states/domain/entities/states_current_entity.dart';
 import 'package:covid/features/states/domain/entities/states_entity.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,6 +7,7 @@ import 'package:equatable/equatable.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../../domain/usescases/get_list_states_current_usecase.dart';
 import '../../domain/usescases/get_list_states_usescase.dart';
+import '../../domain/usescases/get_region_detail_usescase.dart';
 
 part 'states_event.dart';
 part 'states_state.dart';
@@ -13,10 +15,12 @@ part 'states_state.dart';
 class StatesBloc extends Bloc<StatesEvent, StatesState> {
   final GetListStatesUseCase getListStatesUseCase;
   final GetListStatesCurrentUseCase getListStatesCurrentUseCase;
+  final GetRegionDetailUseCase getRegionDetailUseCase;
 
   StatesBloc({
     required this.getListStatesUseCase,
     required this.getListStatesCurrentUseCase,
+    required this.getRegionDetailUseCase,
   }) : super(StatesInitial()) {
     on<GetStatesEvents>((event, emit) async {
       emit(await _getStates(event: event, emit: emit));
@@ -24,6 +28,10 @@ class StatesBloc extends Bloc<StatesEvent, StatesState> {
 
     on<GetStatesCurrentEvents>((event, emit) async {
       emit(await _getStatesCurrent(event: event, emit: emit));
+    });
+
+    on<GetRegionDetailEvents>((event, emit) async {
+      emit(await _getRegionDetailStates(event: event, emit: emit));
     });
   }
 
@@ -65,6 +73,29 @@ class StatesBloc extends Bloc<StatesEvent, StatesState> {
       (resp) {
         emit(SuccessGetStatesCurrentState(resp));
         return GetStatesCurrentState(resp);
+      },
+    );
+  }
+
+  Future<StatesState> _getRegionDetailStates({
+    required GetRegionDetailEvents event,
+    required Emitter<StatesState> emit,
+  }) async {
+    emit(LoadingGetRegionDetailState());
+    final result = await getRegionDetailUseCase(
+      ParamsUseCaseRegionDetail(
+        regionState: event.regionState,
+      ),
+    );
+
+    return result.fold(
+      (l) {
+        emit(FailedGetRegionDetailState());
+        return const GetRegionDetailState(RegionDetailEntity.empty());
+      },
+      (resp) {
+        emit(SuccessGetRegionDetailState(resp));
+        return GetRegionDetailState(resp);
       },
     );
   }

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:covid/core/theme/fonts.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -13,13 +16,36 @@ class CardDevice extends StatefulWidget {
 }
 
 class _CardDeviceState extends State<CardDevice> {
+  DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
+  AndroidDeviceInfo? _androidInfo;
+  IosDeviceInfo? _iosInfo;
+
+  @override
+  void initState() {
+    super.initState();
+    _deviceInfo = DeviceInfoPlugin();
+    _initDeviceInfo();
+  }
+
+  void _initDeviceInfo() async {
+    if (Platform.isAndroid) {
+      _androidInfo = await _deviceInfo.androidInfo;
+    } else if (Platform.isIOS) {
+      _iosInfo = await _deviceInfo.iosInfo;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    return _getContainerInfo();
+  }
+
+  Widget _getContainerInfo() {
     return Container(
       padding: EdgeInsets.all(2.h),
       margin: EdgeInsets.only(top: 30.h),
       width: 80.w,
-      height: 20.h,
+      height: 18.h,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
         borderRadius: BorderRadius.circular(10),
@@ -63,7 +89,9 @@ class _CardDeviceState extends State<CardDevice> {
               ),
               Expanded(
                 child: Text(
-                  "XXXXXXX",
+                  _androidInfo != null
+                      ? _androidInfo!.device
+                      : (_iosInfo == null ? '' : _iosInfo!.name),
                   style: textBlackStyle(Theme.of(context).colorScheme.primary),
                 ),
               ),
@@ -94,13 +122,17 @@ class _CardDeviceState extends State<CardDevice> {
             children: [
               Expanded(
                 child: Text(
-                  "XXXXXXXX",
+                  _androidInfo != null
+                      ? _androidInfo!.brand
+                      : (_iosInfo == null ? '' : _iosInfo!.utsname.machine),
                   style: textBlackStyle(Theme.of(context).colorScheme.primary),
                 ),
               ),
               Expanded(
                 child: Text(
-                  "AAAAAAAAAA",
+                  _androidInfo != null
+                      ? _androidInfo!.type
+                      : (_iosInfo == null ? '' : _getDeviceTypeText(_iosInfo!)),
                   style: textBlackStyle(Theme.of(context).colorScheme.primary),
                 ),
               ),
@@ -131,13 +163,19 @@ class _CardDeviceState extends State<CardDevice> {
             children: [
               Expanded(
                 child: Text(
-                  "XXXXXXXX",
+                  _androidInfo != null
+                      ? _androidInfo!.model
+                      : (_iosInfo == null ? '' : _iosInfo!.model),
                   style: textBlackStyle(Theme.of(context).colorScheme.primary),
                 ),
               ),
               Expanded(
                 child: Text(
-                  "A.B.C.D",
+                  _androidInfo != null
+                      ? _androidInfo!.version.release
+                      : (_iosInfo == null
+                          ? ''
+                          : "${_iosInfo!.systemName} ${_iosInfo!.systemVersion}"),
                   style: textBlackStyle(Theme.of(context).colorScheme.primary),
                 ),
               ),
@@ -146,6 +184,16 @@ class _CardDeviceState extends State<CardDevice> {
         ],
       ),
     );
+  }
+
+  String _getDeviceTypeText(IosDeviceInfo iosInfo) {
+    if (iosInfo.model.contains('iPhone')) {
+      return 'Phone';
+    } else if (iosInfo.model.contains('iPad')) {
+      return 'Ipad';
+    } else {
+      return 'Unknown';
+    }
   }
 
   int getCurrentHour() {
