@@ -19,7 +19,7 @@ class _CardDeviceState extends State<CardDevice> {
       padding: EdgeInsets.all(2.h),
       margin: EdgeInsets.only(top: 30.h),
       width: 80.w,
-      height: 20.h,
+      height: 18.h,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
         borderRadius: BorderRadius.circular(10),

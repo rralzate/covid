@@ -70,102 +70,106 @@ class _CardCovidInformationState extends State<CardCovidInformation> {
       margin: EdgeInsets.only(top: 45.h),
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: mainWhite,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50), topRight: Radius.circular(50)),
       ),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 5.h,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                  child: Text(
-                "Fecha Recoleccion de datos: ",
-                style: textBlackStyleThinPositionCovidcard,
-              )),
-              Expanded(
-                  child: Text(
-                (deviceEntity.date == 0
-                    ? ''
-                    : DatesFormat.convertIntToDateTime(deviceEntity.date)),
-                style: textBlackStyleThinPositionCovidcard,
-              )),
-            ],
-          ),
-          _verticalSeparator(),
-          Container(
-            margin: EdgeInsets.only(right: 3.w, left: 3.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: SingleChildScrollView(
+        physics: const ScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 3.5.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CardCovidMeaures(
-                      measure: NumberFormat('#,##0', 'en_US')
-                          .format(deviceEntity.totalTestResults),
-                      title: "Casos totales",
-                    ),
-                    CardCovidMeaures(
-                      measure: NumberFormat('#,##0', 'en_US')
-                          .format(deviceEntity.positive),
-                      title: "Casos confirmados",
-                    ),
-                  ],
-                ),
-                _verticalSeparator(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CardCovidMeaures(
-                      measure: NumberFormat('#,##0', 'en_US')
-                          .format(deviceEntity.negativeIncrease),
-                      title: "Pruebas negativas",
-                    ),
-                    CardCovidMeaures(
-                      measure: NumberFormat('#,##0', 'en_US')
-                          .format(deviceEntity.positiveIncrease),
-                      title: "Pruebas positivas",
-                    ),
-                  ],
-                ),
-                _verticalSeparator(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CardCovidMeaures(
-                      measure: NumberFormat('#,##0', 'en_US')
-                          .format(deviceEntity.death),
-                      title: "Fallecidos",
-                    ),
-                    CardCovidMeaures(
-                      measure: NumberFormat('#,##0', 'en_US')
-                          .format(deviceEntity.recovered ?? 0),
-                      title: "Recuperados",
-                    ),
-                  ],
-                ),
-                _verticalSeparator(),
-                CardCovidMeaures(
-                  measure:
-                      NumberFormat('#,##0', 'en_US').format(deviceEntity.death),
-                  title: "Pruebas pendientes",
-                ),
+                Expanded(
+                    child: Text(
+                  "Fecha Recoleccion de datos: ",
+                  style: textBlackStyleThinPositionCovidcard,
+                )),
+                Expanded(
+                    child: Text(
+                  (deviceEntity.date == 0
+                      ? ''
+                      : DatesFormat.convertIntToDateTime(deviceEntity.date)),
+                  style: textBlackStyleThinPositionCovidcard,
+                )),
               ],
             ),
-          ),
-          SizedBox(
-            height: 3.h,
-          ),
-          Text(
-            "El proyecto COVID Tracking ha finalizado toda recopilación de datos a partir del 7 de marzo de 2021",
-            style: textBlackStyle(primaryColor),
-          )
-        ],
+            _verticalSeparator(),
+            Container(
+              margin: EdgeInsets.only(right: 3.w, left: 3.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CardCovidMeaures(
+                        measure: NumberFormat('#,##0', 'en_US')
+                            .format(deviceEntity.totalTestResults),
+                        title: "Casos totales",
+                      ),
+                      CardCovidMeaures(
+                        measure: NumberFormat('#,##0', 'en_US')
+                            .format(deviceEntity.positive),
+                        title: "Casos confirmados",
+                      ),
+                    ],
+                  ),
+                  _verticalSeparator(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CardCovidMeaures(
+                        measure: NumberFormat('#,##0', 'en_US')
+                            .format(deviceEntity.negativeIncrease),
+                        title: "Pruebas negativas",
+                      ),
+                      CardCovidMeaures(
+                        measure: NumberFormat('#,##0', 'en_US')
+                            .format(deviceEntity.positiveIncrease),
+                        title: "Pruebas positivas",
+                      ),
+                    ],
+                  ),
+                  _verticalSeparator(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CardCovidMeaures(
+                        measure: NumberFormat('#,##0', 'en_US')
+                            .format(deviceEntity.death),
+                        title: "Fallecidos",
+                      ),
+                      CardCovidMeaures(
+                        measure: NumberFormat('#,##0', 'en_US')
+                            .format(deviceEntity.recovered ?? 0),
+                        title: "Recuperados",
+                      ),
+                    ],
+                  ),
+                  _verticalSeparator(),
+                  CardCovidMeaures(
+                    measure: NumberFormat('#,##0', 'en_US')
+                        .format(deviceEntity.death),
+                    title: "Pruebas pendientes",
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 3.h,
+            ),
+            Text(
+              "El proyecto COVID Tracking ha finalizado toda recopilación de datos a partir del 7 de marzo de 2021",
+              style: textBlackStyle(primaryColor),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -24,6 +24,7 @@ import 'features/states/data/repositories/states_repository_impl.dart';
 import 'features/states/domain/repositories/states_repository.dart';
 import 'features/states/domain/usescases/get_list_states_current_usecase.dart';
 import 'features/states/domain/usescases/get_list_states_usescase.dart';
+import 'features/states/domain/usescases/get_region_detail_usescase.dart';
 
 final getIt = GetIt.instance;
 
@@ -44,6 +45,7 @@ Future<void> injectDependencies() async {
     () => StatesBloc(
       getListStatesUseCase: getIt(),
       getListStatesCurrentUseCase: getIt(),
+      getRegionDetailUseCase: getIt(),
     ),
   );
 
@@ -61,6 +63,9 @@ Future<void> injectDependencies() async {
 
   getIt.registerLazySingleton(
       () => GetListStatesCurrentUseCase(repository: getIt()));
+
+  getIt
+      .registerLazySingleton(() => GetRegionDetailUseCase(repository: getIt()));
 
   // Repository
   getIt.registerLazySingleton<AuthRepository>(

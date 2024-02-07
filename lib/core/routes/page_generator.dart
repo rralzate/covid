@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:covid/features/auth/presentation/screens/splash_screen.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
+import '../../features/states/presentation/screens/region_detail_screen.dart';
 import '../../features/states/presentation/screens/states_screen.dart';
 
 class PageClassGenerator {
@@ -31,6 +32,12 @@ class PageClassGenerator {
 
       case StatesScreen.routeName:
         builder = (context) => const StatesScreen();
+        break;
+
+      case RegionDetailScreen.routeName:
+        builder = (context) => RegionDetailScreen(
+              regionState: routeSettings.arguments as String,
+            );
         break;
 
       default:

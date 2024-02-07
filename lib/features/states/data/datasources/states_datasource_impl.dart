@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:covid/features/states/data/models/region_detail_model.dart';
 import 'package:covid/features/states/data/models/states_current_model.dart';
 
 import 'package:covid/features/states/data/models/states_model.dart';
@@ -37,5 +38,14 @@ class StatesDatasourceImpl implements StatesDatasource {
     );
 
     return statesCurrentModelFromJson(result.body);
+  }
+
+  @override
+  Future<RegionDetailModel> getRegionDetailByState(String regionState) async {
+    final result = await apiClient.get(
+      "${ServerApiConstants.regionDetailEndpoint}$regionState/info.json",
+    );
+
+    return RegionDetailModel.regionDetailModelFromJson(result.body);
   }
 }

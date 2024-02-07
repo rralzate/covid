@@ -1,5 +1,4 @@
 import 'package:covid/core/components/custom_loading.dart';
-import 'package:covid/core/theme/colors.dart';
 import 'package:covid/core/theme/fonts.dart';
 import 'package:covid/features/home/presentation/screens/home_screen.dart';
 import 'package:covid/features/states/domain/entities/states_current_entity.dart';
@@ -13,9 +12,10 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/utils/dates_format.dart';
 import '../widgets/card_states.dart';
+import 'region_detail_screen.dart';
 
 class StatesScreen extends StatefulWidget {
-  static const routeName = '/region-detail';
+  static const routeName = '/region';
 
   const StatesScreen({Key? key}) : super(key: key);
 
@@ -137,13 +137,19 @@ class _StatesScreenState extends State<StatesScreen> {
             }
           }
 
-          return CardStates(
-            onTap: () => Navigator.pushNamed(context, HomeScreen.routeName),
-            name: item.name,
-            cases: cases,
-            lastUpdate: lastModified,
-            imageUrl:
-                "https://flagcdn.com/w20/us-${item.state.toLowerCase()}.png",
+          return GestureDetector(
+            onTap: () => Navigator.pushNamed(
+              context,
+              RegionDetailScreen.routeName,
+              arguments: item.state.toLowerCase(),
+            ),
+            child: CardStates(
+              name: item.name,
+              cases: cases,
+              lastUpdate: lastModified,
+              imageUrl:
+                  "https://flagcdn.com/w20/us-${item.state.toLowerCase()}.png",
+            ),
           );
         },
       );
